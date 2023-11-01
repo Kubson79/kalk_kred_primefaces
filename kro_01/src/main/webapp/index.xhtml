@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>Kalkulator kredytowy</title>
+</h:head>
+<h:body>
+
+	<p:panel header="Oblicz ratę kredytu" toggleable="true" closable="true" totggleSpeed="300" style="margin: 1em auto">
+
+
+	<h:form id="bla">
+	
+  		<h:panelGrid id="grid" columns="3" cellpadding="5">
+  		
+  			<p:outputLabel for="x" value="Wartośc kredytu:" />
+			<p:inputText id="x" required="true" value="#{calcBB.x}"  requiredMessage="brak X" />
+  			<p:message for="x" />
+  			
+  			<p:outputLabel for="y" value="Liczba lat:" />
+			<p:inputText id="y" required="true" value="#{calcBB.y}" requiredMessage="brak X" />
+  			<p:message for="y" />
+			<p:growl for="y" />
+			
+		</h:panelGrid>
+				<p:commandButton value="Oblicz rate" action="#{calcBB.calc()}" upadate="@form"/>
+	<p:growl id="msg" showDetail="true" sticky="true" />	
+	</h:form>
+	</p:panel>
+</h:body>
+</html>
